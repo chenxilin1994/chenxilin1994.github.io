@@ -1,0 +1,1 @@
+import{_ as e,c as t,o as n}from"./chunks/framework.D30IVGRC.js";const m=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"python/backend/index.md","filePath":"python/backend/index.md"}'),a={name:"python/backend/index.md"};function o(c,r,d,s,i,p){return n(),t("div")}const f=e(a,[["render",o]]);export{m as __pageData,f as default};

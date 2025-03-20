@@ -1,1 +1,0 @@
-import{_ as t,c as s,o as a}from"./chunks/framework.DPDPlp3K.js";const m=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"src/python_basics/syntax.md","filePath":"src/python_basics/syntax.md"}'),e={name:"src/python_basics/syntax.md"};function n(c,r,o,p,_,i){return a(),s("div")}const f=t(e,[["render",n]]);export{m as __pageData,f as default};
