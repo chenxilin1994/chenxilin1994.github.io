@@ -1,0 +1,1 @@
+import{_ as n,c as a,o as l,ag as p}from"./chunks/framework.DPDPlp3K.js";const y=JSON.parse('{"title":"一、Algolia文档搜索配置","description":"","frontmatter":{},"headers":[],"relativePath":"TODO.md","filePath":"TODO.md"}'),e={name:"TODO.md"};function o(r,s,c,t,D,F){return l(),a("div",null,s[0]||(s[0]=[p("",32)]))}const b=n(e,[["render",o]]);export{y as __pageData,b as default};

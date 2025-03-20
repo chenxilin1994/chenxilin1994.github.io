@@ -1,0 +1,1 @@
+import{_ as t,c as e,o as a}from"./chunks/framework.DPDPlp3K.js";const i=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"src/ml/math.md","filePath":"src/ml/math.md"}'),r={name:"src/ml/math.md"};function s(c,o,m,n,p,_){return a(),e("div")}const l=t(r,[["render",s]]);export{i as __pageData,l as default};
