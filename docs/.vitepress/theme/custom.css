@@ -1,0 +1,132 @@
+/* .vitepress/theme/custom.css */
+.vp-doc h1 {
+    color: #eba337;
+    /* 一级标题蓝色 */
+}
+
+.vp-doc h2 {
+    color: #4da3ea;
+    /* 二级标题绿色 */
+}
+
+.vp-doc h3 {
+    color: #4caf50;
+    /* 三级标题橙色 */
+}
+
+.vp-doc h4 {
+    color: #ba7ccf;
+    /* 三级标题橙色 */
+}
+
+.vp-doc h5 {
+    color: #dc89aa;
+    /* 三级标题橙色 */
+}
+
+/* ----- 加粗文字变红色 ----- */
+.vp-doc strong {
+    color: #f15454 !important;
+    /* 正红色 */
+}
+
+/* ----- 斜体文字浅红色 + 轻微阴影 ----- */
+.vp-doc em {
+    color: #d36363 !important;
+    /* 浅红色 */
+    text-shadow: 1px 1px 2px rgba(255, 102, 102, 0.2);
+}
+
+/* ----- 同时加粗+斜体的组合效果 ----- */
+.vp-doc strong em {
+    color: #d45050 !important;
+    text-decoration: underline wavy #ff4444;
+}
+
+
+/* 代码块背景和边框 */
+.vp-doc div[class*='language-'] {
+    background: #f8f8f8 !important;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+}
+
+/* 代码关键字颜色 */
+.vp-doc .token.keyword {
+    color: #d73a49 !important;
+    /* 红色系 */
+}
+
+/* 字符串颜色 */
+.vp-doc .token.string {
+    color: #22863a !important;
+    /* 绿色系 */
+}
+
+.dark .vp-doc div[class*='language-'] {
+    background: #1e1e1e !important;
+    border-color: #404040;
+}
+
+.vp-doc a {
+    color: #2196f3 !important;
+    transition: all 0.3s;
+    position: relative;
+}
+
+.vp-doc a:hover {
+    color: #0d47a1 !important;
+    transform: translateY(-1px);
+}
+
+/* 悬浮时下划线动画 */
+.vp-doc a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #0d47a1;
+    transition: width 0.3s;
+}
+
+.vp-doc a:hover::after {
+    width: 100%;
+}
+
+/* 引用块左侧装饰线 */
+.vp-doc blockquote {
+    border-left: 4px solid #2196f3 !important;
+    background: #f5f5f5 !important;
+    padding: 12px 16px !important;
+    margin: 16px 0 !important;
+    border-radius: 4px;
+}
+
+.dark .vp-doc blockquote {
+    background: #1e2a3a !important;
+}
+
+/* 无序列表点颜色 */
+.vp-doc ul li::before {
+    background-color: #4caf50 !important;
+}
+
+/* 有序列表数字颜色 */
+.vp-doc ol li::before {
+    color: #2196f3 !important;
+}
+
+.vp-doc table tr:nth-child(2n) {
+    background: #f8fafc !important;
+}
+
+.vp-doc table th {
+    background: #2c475e !important;
+    color: rgb(45, 180, 72) !important;
+}
+
+.dark .vp-doc table tr:nth-child(2n) {
+    background: #10151d !important;
+}
