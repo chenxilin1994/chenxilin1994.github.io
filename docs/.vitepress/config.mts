@@ -27,7 +27,7 @@ function processSidebar(sidebarConfig) {
 
 
 const rawSidebar = {
-  '/python/basic/': [
+  '/python': [
     {
       text: 'Python基础',
       items: [
@@ -47,15 +47,18 @@ const rawSidebar = {
         { text: '数据库操作', link: '/python/basic/sql' },
         { text: 'Web开发入门', link: '/python/basic/web' }
       ]
-    }
-  ],
-  '/python/data_structure/': [
+    },
     {
       text: '数据结构与算法',
       items: [
         { text: '前言', link: '/python/data_structure/' },
         { text: '初识算法', link: '/python/data_structure/first_meet' },
-        { text: '算法复杂度', link: '/python/data_structure/complexity' },
+        {
+          text: '复杂度分析', link: '/python/data_structure/complexity_analysis',
+          items: [
+            { text: '算法效率评估', link: '/python/data_structure/complexity_analysis/algorithm_efficiency_evaluate' }
+          ]
+        },
         { text: '数据结构', link: '/python/data_structure/data_structure' },
         {
           text: '数组与链表', items: [
@@ -171,20 +174,16 @@ const rawSidebar = {
           ]
         },
       ]
-    }
-  ],
-  '/python/backend/': [
+    },
     {
-      text: '后端',
+      text: '后端开发',
       items: [
         { text: 'flask', link: '/python_basics/installation' },
         { text: 'django', link: '/python_basics/syntax' },
       ]
-    }
-  ],
-  '/python/spider/': [
+    },
     {
-      text: '爬虫',
+      text: '爬虫技术',
       items: [
         { text: 'requests', link: '/python_basics/installation' },
         { text: 'bs4', link: '/python_basics/syntax' },
@@ -192,7 +191,8 @@ const rawSidebar = {
       ]
     }
   ],
-  '/ai/ml/': [
+
+  '/ai': [
     {
       text: '机器学习',
       items: [
@@ -200,9 +200,15 @@ const rawSidebar = {
         { text: '线性回归', link: '/ml/linear_regression' },
         { text: '分类算法', link: '/ml/classification' }
       ]
-    }
-  ],
-  '/ai/llm/': [
+    },
+    {
+      text: '深度学习',
+      items: [
+        { text: '基础', link: '/ml/math' },
+        { text: '反向传播算法', link: '/ml/linear_regression' },
+        { text: '卷积神经网络', link: '/ml/classification' }
+      ]
+    },
     {
       text: '大模型技术',
       items: [
@@ -211,9 +217,17 @@ const rawSidebar = {
         { text: '微调技巧', link: '/llm/finetune' }
       ]
     }
+  ],
+
+  '/statistics': [
+    {
+      text: '概率论', link: '', items: []
+    },
+    {
+      text: '微积分', link: '', items: []
+    },
   ]
 }
-
 
 
 export default withMermaid({
