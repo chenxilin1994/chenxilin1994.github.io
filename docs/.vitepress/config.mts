@@ -124,12 +124,52 @@ const rawSidebar = {
             { text: '冒泡排序', link: '/python/data_structure/binary_search_boundary' },
             { text: '插入排序', link: '/python/data_structure/hash_optimization_strategy' },
             { text: '快速排序', link: '/python/data_structure/rerecognition_search_algorithm' },
-            { text: '快速排序', link: '/python/data_structure/rerecognition_search_algorithm' },
-            { text: '快速排序', link: '/python/data_structure/rerecognition_search_algorithm' },
-            { text: '快速排序', link: '/python/data_structure/rerecognition_search_algorithm' },
-            { text: '小结', link: '/python/data_structure/summary10' }
+            { text: '归并排序', link: '/python/data_structure/rerecognition_search_algorithm' },
+            { text: '堆排序', link: '/python/data_structure/rerecognition_search_algorithm' },
+            { text: '桶排序', link: '/python/data_structure/rerecognition_search_algorithm' },
+            { text: '计数排序', link: '/python/data_structure/rerecognition_search_algorithm' },
+            { text: '基数排序', link: '/python/data_structure/rerecognition_search_algorithm' },
+            { text: '小结', link: '/python/data_structure/summary11' }
           ]
-        }
+        },
+        {
+          text: '分治', items: [
+            { text: '分治算法', link: '/python/data_structure/heap' },
+            { text: '分治搜索策略', link: '/python/data_structure/heap_building' },
+            { text: '构建树问题', link: '/python/data_structure/top_k' },
+            { text: '汉诺塔问题', link: '/python/data_structure/top_k' },
+            { text: '小结', link: '/python/data_structure/summary12' }
+          ]
+        },
+        {
+          text: '回溯', items: [
+            { text: '回溯算法', link: '/python/data_structure/heap' },
+            { text: '全排列问题', link: '/python/data_structure/heap_building' },
+            { text: '子集和问题', link: '/python/data_structure/top_k' },
+            { text: 'N皇后问题', link: '/python/data_structure/top_k' },
+            { text: '小结', link: '/python/data_structure/summary13' }
+          ]
+        },
+        {
+          text: '动态规划', items: [
+            { text: '初探动态规划', link: '/python/data_structure/heap' },
+            { text: 'DP问题特性', link: '/python/data_structure/heap_building' },
+            { text: 'DP解题思路', link: '/python/data_structure/top_k' },
+            { text: '0-1背包问题', link: '/python/data_structure/top_k' },
+            { text: '完全背包问题', link: '/python/data_structure/top_k' },
+            { text: '编辑距离问题', link: '/python/data_structure/top_k' },
+            { text: '小结', link: '/python/data_structure/summary14' }
+          ]
+        },
+        {
+          text: '贪心', items: [
+            { text: '贪心算法', link: '/python/data_structure/heap' },
+            { text: '分数背包问题', link: '/python/data_structure/heap_building' },
+            { text: '最大容量问题', link: '/python/data_structure/top_k' },
+            { text: '最大切分乘积问题', link: '/python/data_structure/top_k' },
+            { text: '小结', link: '/python/data_structure/summary15' }
+          ]
+        },
       ]
     }
   ],
