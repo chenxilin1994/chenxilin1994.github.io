@@ -54,27 +54,39 @@ const rawSidebar = {
         { text: '前言', link: '/python/data_structure/' },
         { text: '初识算法', link: '/python/data_structure/first_meet' },
         {
-          text: '复杂度分析', link: '/python/data_structure/complexity_analysis',
+          text: '复杂度分析',
           items: [
-            { text: '算法效率评估', link: '/python/data_structure/complexity_analysis/algorithm_efficiency_evaluate' }
+            { text: '算法效率评估', link: '/python/data_structure/complexity_analysis/algorithm_efficiency_evaluate' },
+            { text: '迭代与递归', link: '/python/data_structure/complexity_analysis/iteration_recursion' },
+            { text: '时间复杂度', link: '/python/data_structure/complexity_analysis/time_complexity' },
+            { text: '空间复杂度', link: '/python/data_structure/complexity_analysis/space_complexity' }
+            , { text: '小结', link: '/python/data_structure/complexity_analysis/summary' }
           ]
         },
-        { text: '数据结构', link: '/python/data_structure/data_structure' },
+        {
+          text: '数据结构', items: [
+            { text: '数据结构分类', link: '/python/data_structure/data_structure/data_structure_classify' },
+            { text: '基本数据类型', link: '/python/data_structure/data_structure/basic_data_type' },
+            { text: '数字编码', link: '/python/data_structure/data_structure/digitally_encoding' },
+            { text: '字符编码', link: '/python/data_structure/data_structure/character_encoding' },
+            { text: '小结', link: '/python/data_structure/data_structure/summary' },
+          ]
+        },
         {
           text: '数组与链表', items: [
-            { text: '数组', link: '/python/data_structure/array' },
-            { text: '链表', link: '/python/data_structure/linked_list' },
-            { text: '列表', link: '/python/data_structure/list' },
-            { text: '内存与缓存', link: '/python/data_structure/ram_cache' },
-            { text: '小结', link: '/python/data_structure/summary4' }
+            { text: '数组', link: '/python/data_structure/array_link_list/array' },
+            { text: '链表', link: '/python/data_structure/array_link_list/linked_list' },
+            { text: '列表', link: '/python/data_structure/array_link_list/list' },
+            { text: '内存与缓存', link: '/python/data_structure/array_link_list/ram_cache' },
+            { text: '小结', link: '/python/data_structure/array_link_list/summary' }
           ]
         },
         {
           text: '栈与队列', items: [
-            { text: '栈', link: '/python/data_structure/stack' },
-            { text: '队列', link: '/python/data_structure/queue' },
-            { text: '双向队列', link: '/python/data_structure/bidirectional_queue' },
-            { text: '小结', link: '/python/data_structure/summary5' }
+            { text: '栈', link: '/python/data_structure/stack_queue/stack' },
+            { text: '队列', link: '/python/data_structure/stack_queue/queue' },
+            { text: '双向队列', link: '/python/data_structure/stack_queue/deque' },
+            { text: '小结', link: '/python/data_structure/stack_queue/summary' }
           ]
         },
         {

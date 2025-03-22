@@ -11,7 +11,7 @@ editLink: true
 
 链表的设计使得各个节点可以分散存储在内存各处，它们的内存地址无须连续。
 
-![链表定义与存储方式](../../public/images/image-32.png)
+![链表定义与存储方式](../../../public/images/image-32.png)
 
 观察上图 ，链表的组成单位是节点（node）对象。每个节点都包含两项数据：节点的“值”和指向下一节点的“引用”。
 
@@ -54,7 +54,7 @@ n3.next = n4
 
 相比之下，在数组中插入元素的时间复杂度为 $O(n)$，在大数据量下的效率较低。
 
-![链表插入节点示例](../../public/images/image-33.png)
+![链表插入节点示例](../../../public/images/image-33.png)
 
 ```python
 def insert(n0: ListNode, P: ListNode):
@@ -67,7 +67,7 @@ def insert(n0: ListNode, P: ListNode):
 
 ### 删除节点
 在链表中删除节点也非常方便，只需*改变一个节点的引用（指针）*即可。
-![链表删除节点](../../public/images/image-34.png)
+![链表删除节点](../../../public/images/image-34.png)
 
 ```python
 def remove(n0: ListNode):
@@ -137,7 +137,7 @@ class ListNode:
         self.prev: ListNode | None = None  # 指向前驱节点的引用
 ```
 
-![常见链表种类](../../public/images/image-35.png)
+![常见链表种类](../../../public/images/image-35.png)
 
 ## 链表典型应用
 
