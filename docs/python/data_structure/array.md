@@ -1,288 +1,157 @@
 ---
 layout: doc
-title: 数据结构基础：数组的全面解析与Python实现
+title: 数组
 editLink: true
 ---
+# 数组
 
-# 数组：数据结构的基石
+数组（array）是一种线性数据结构，其将相同类型的元素存储在连续的内存空间中。我们将元素在数组中的位置称为该元素的索引（index）。
 
-## 第一章 数组基础理论
+![数组定义与存储方式](../../public/images/image-28.png)
 
-### 1.1 数组的定义与特性
-数组（Array）是一种**线性数据结构**，由相同类型元素的集合组成，存储在**连续的内存空间**中。其核心特征：
+## 数组常用操作
+### 初始化数组
 
-- **同构性**：所有元素类型相同
-- **连续性**：内存地址连续分配
-- **确定性**：创建时需指定容量（静态数组）
-- **随机访问**：通过索引直接访问任意元素
-
-### 1.2 内存结构解析
-假设存储int类型数组（4字节/元素）：
+我们可以根据需求选用数组的两种初始化方式：无初始值、给定初始值。在未指定初始值的情况下，大多数编程语言会将数组元素初始化为0.
 
 ```python
-索引：   0       1       2        3
-地址：0x1000 0x1004 0x1008 0x100C
-值：   10     20     30      40
+# 初始化数组
+arr: list[int] = [0] * 5  # [ 0, 0, 0, 0, 0 ]
+nums: list[int] = [1, 3, 2, 5, 4]
 ```
 
-元素地址计算公式：  
-`address[i] = base_address + i * sizeof(type)`
+### 访问元素
+数组元素被存储在连续的内存空间中，这意味着计算数组元素的内存地址非常容易。给定数组内存地址（首元素内存地址）和某个元素的索引，我们可以使用下图所示的公式计算得到该元素的内存地址，从而直接访问该元素。
 
-### 1.3 核心操作复杂度
-| 操作            | 时间复杂度 | 说明                         |
-|----------------|------------|------------------------------|
-| 访问元素        | O(1)       | 直接计算内存地址              |
-| 插入元素（末尾）| O(1)       | 动态数组的摊销时间复杂度      |
-| 插入元素（中间）| O(n)       | 需要移动后续元素              |
-| 删除元素        | O(n)       | 需要移动后续元素              |
-| 查找元素        | O(n)       | 无序数组需要线性扫描          |
+![数组元素的内存地址计算](../../public/images/image-29.png)
 
+我们发现数组首个元素的索引为 0 ，这似乎有些反直觉，因为从 
+ 1开始计数会更自然。但从地址计算公式的角度看，索引本质上是内存地址的偏移量。首个元素的地址偏移量是 0 ，因此它的索引为 0 是合理的。
 
-## 第二章 Python中的数组实现
+在数组中访问元素非常高效，我们可以在 $O(1)$ 时间内随机访问数组中的任意一个元素。
 
-### 2.1 列表的本质
-Python的`list`实际上是**动态数组**实现，具有以下特性：
-
-- 自动扩容/缩容机制
-- 可存储异构数据（但推荐保持同构）
-- 预分配额外空间减少频繁扩容
-
-### 2.2 动态数组扩容策略
 ```python
-import sys
-
-def show_growth():
-    lst = []
-    last_capacity = 0
-    for i in range(100):
-        lst.append(i)
-        curr_capacity = sys.getsizeof(lst) // sys.getsizeof(0)
-        if curr_capacity != last_capacity:
-            print(f"元素数: {i+1}, 容量: {curr_capacity}")
-            last_capacity = curr_capacity
-
-show_growth()
-
-# 输出示例：
-# 元素数: 1, 容量: 4
-# 元素数: 5, 容量: 8
-# 元素数: 9, 容量: 16
-# 元素数: 17, 容量: 25
-# 元素数: 26, 容量: 35...
-```
-扩容策略：新容量 = 当前容量 * ~1.125（CPython实现）
-
-### 2.3 基础操作实现
-
-#### 创建数组
-```python
-# 标准创建
-arr = [1, 2, 3, 4, 5]
-
-# 使用生成式
-zeros = [0] * 10  # [0, 0, ..., 0]
-
-# 类型限定（array模块）
-import array
-int_arr = array.array('i', [1, 2, 3])
+def random_access(nums: list[int]) -> int:
+    """随机访问元素"""
+    # 在区间 [0, len(nums)-1] 中随机抽取一个数字
+    random_index = random.randint(0, len(nums) - 1)
+    # 获取并返回随机元素
+    random_num = nums[random_index]
+    return random_num
 ```
 
-#### 访问元素
+### 插入元素
+
+数组元素在内存中是“紧挨着的”，它们之间没有空间再存放任何数据。如图所示，如果想在数组中间插入一个元素，则需要将该元素之后的所有元素都向后移动一位，之后再把元素赋值给该索引。
+
+![数组插入元素示例](../../public/images/image-30.png)
+
+值得注意的是，由于数组的长度是固定的，因此插入一个元素必定会导致数组尾部元素“丢失”。我们将这个问题的解决方案留在“列表”章节中讨论。
+
 ```python
-# 正索引
-print(arr[0])  # 第一个元素 → 1
-
-# 负索引
-print(arr[-1]) # 最后一个元素 → 5
-
-# 切片操作
-print(arr[1:4]) # [2, 3, 4]
+def insert(nums: list[int], num: int, index: int):
+    """在数组的索引 index 处插入元素 num"""
+    # 把索引 index 以及之后的所有元素向后移动一位
+    for i in range(len(nums) - 1, index, -1):
+        nums[i] = nums[i - 1]
+    # 将 num 赋给 index 处的元素
+    nums[index] = num
 ```
 
-#### 插入操作
-```python
-# 末尾追加（O(1)）
-arr.append(6) 
+### 删除元素
 
-# 指定位置插入（O(n)）
-arr.insert(2, 2.5)  # [1, 2, 2.5, 3, 4, 5, 6]
+同理，如图所示，若想删除索引 i 处的元素，则需要把索引 i之后的元素都向前移动一位。
+
+![数组删除元素示例](../../public/images/image-31.png)
+
+请注意，删除元素完成后，原先末尾的元素变得“无意义”了，所以我们无须特意去修改它。
+
+```python
+def remove(nums: list[int], index: int):
+    """删除索引 index 处的元素"""
+    # 把索引 index 之后的所有元素向前移动一位
+    for i in range(index, len(nums) - 1):
+        nums[i] = nums[i + 1]
 ```
 
-#### 删除操作
+总的来看，数组的插入与删除操作有以下缺点。
+
+- 时间复杂度高：数组的插入和删除的平均时间复杂度均为 $O(n)$
+，其中 $n$为数组长度。
+- 丢失元素：由于数组的长度不可变，因此在插入元素后，超出数组长度范围的元素会丢失。
+- 内存浪费：我们可以初始化一个比较长的数组，只用前面一部分，这样在插入数据时，丢失的末尾元素都是“无意义”的，但这样做会造成部分内存空间浪费。
+
+### 遍历数组
+
+在大多数编程语言中，我们既可以通过索引遍历数组，也可以直接遍历获取数组中的每个元素：
+
 ```python
-# 按值删除（O(n)）
-arr.remove(2.5) 
+def traverse(nums: list[int]):
+    """遍历数组"""
+    count = 0
+    # 通过索引遍历数组
+    for i in range(len(nums)):
+        count += nums[i]
+    # 直接遍历数组元素
+    for num in nums:
+        count += num
+    # 同时遍历数据索引和元素
+    for i, num in enumerate(nums):
+        count += nums[i]
+        count += num
+```
+### 查找元素
 
-# 按索引删除（O(n)）
-del arr[1]
+在数组中查找指定元素需要遍历数组，每轮判断元素值是否匹配，若匹配则输出对应索引。
 
-# 弹出末尾（O(1)）
-last = arr.pop()
+因为数组是线性数据结构，所以上述查找操作被称为“线性查找”。
+
+```python
+def find(nums: list[int], target: int) -> int:
+    """在数组中查找指定元素"""
+    for i in range(len(nums)):
+        if nums[i] == target:
+            return i
+    return -1
 ```
 
+### 扩容数组
 
-## 第三章 高级操作与应用
+在复杂的系统环境中，程序难以保证数组之后的内存空间是可用的，从而无法安全地扩展数组容量。因此在大多数编程语言中，数组的长度是不可变的。
 
-### 3.1 内存视图
+如果我们希望扩容数组，则需重新建立一个更大的数组，然后把原数组元素依次复制到新数组。这是一个 $O(n)$的操作，在数组很大的情况下非常耗时。代码如下所示：
 ```python
-# 创建数组
-original = array.array('d', [1.0, 2.0, 3.0])
-
-# 获取内存视图
-mem_view = memoryview(original)
-
-# 修改视图影响原数组
-mem_view[1] = 4.0
-print(original)  # array('d', [1.0, 4.0, 3.0])
+def extend(nums: list[int], enlarge: int) -> list[int]:
+    """扩展数组长度"""
+    # 初始化一个扩展长度后的数组
+    res = [0] * (len(nums) + enlarge)
+    # 将原数组中的所有元素复制到新数组
+    for i in range(len(nums)):
+        res[i] = nums[i]
+    # 返回扩展后的新数组
+    return res
 ```
 
-### 3.2 数组旋转算法
-实现将数组元素向右旋转k次：
+## 数组的优点与局限性
 
-```python
-def rotate(nums, k):
-    n = len(nums)
-    k %= n
-    nums[:] = nums[-k:] + nums[:-k]
+数组存储在连续的内存空间内，且元素类型相同。这种做法包含丰富的先验信息，系统可以利用这些信息来优化数据结构的操作效率。
 
-# 示例
-arr = [1,2,3,4,5]
-rotate(arr, 2)
-print(arr)  # [4,5,1,2,3]
-```
+- **空间效率高**：数组为数据分配了连续的内存块，无须额外的结构开销。
+- **支持随机访问**：数组允许在 $O(1)$时间内访问任何元素。
+- **缓存局部性**：当访问数组元素时，计算机不仅会加载它，还会缓存其周围的其他数据，从而借助高速缓存来提升后续操作的执行速度。
 
-### 3.3 多维数组实现
-```python
-# 二维数组（列表推导式）
-matrix = [[0]*5 for _ in range(3)]
+连续空间存储是一把双刃剑，其存在以下局限性。
 
-# 访问元素
-matrix[0][2] = 10
+- **插入与删除效率低**：当数组中元素较多时，插入与删除操作需要移动大量的元素。
+- **长度不可变**：数组在初始化后长度就固定了，扩容数组需要将所有数据复制到新数组，开销很大。
+- **空间浪费**：如果数组分配的大小超过实际所需，那么多余的空间就被浪费了。
 
-# 锯齿数组
-jagged = [
-    [1,2,3],
-    [4,5],
-    [6,7,8,9]
-]
-```
+## 数组典型应用
 
+数组是一种基础且常见的数据结构，既频繁应用在各类算法之中，也可用于实现各种复杂数据结构。
 
-## 第四章 性能优化实践
-
-### 4.1 预分配空间
-```python
-# 低效方式
-result = []
-for i in range(10000):
-    result.append(i)
-
-# 高效方式
-result = [0] * 10000
-for i in range(10000):
-    result[i] = i
-```
-
-### 4.2 批量操作
-```python
-# 低效
-for item in data:
-    lst.append(item)
-
-# 高效
-lst.extend(data)
-```
-
-### 4.3 内存优化对比
-```python
-from pympler import asizeof
-
-lst = [i for i in range(1000)]
-arr = array.array('i', lst)
-
-print(f"列表内存: {asizeof.asizeof(lst)/1024:.2f} KB")
-print(f"数组内存: {asizeof.asizeof(arr)/1024:.2f} KB")
-
-# 典型输出：
-# 列表内存: 36.12 KB
-# 数组内存: 4.12 KB
-```
-
-
-## 第五章 典型应用场景
-
-### 5.1 位图索引
-```python
-class Bitmap:
-    def __init__(self, size):
-        self.size = size
-        self.bits = array.array('B', [0]*( (size+7)//8 ))
-
-    def set_bit(self, pos):
-        index = pos // 8
-        offset = pos % 8
-        self.bits[index] |= 1 << offset
-
-    def test_bit(self, pos):
-        index = pos // 8
-        offset = pos % 8
-        return (self.bits[index] & (1 << offset)) != 0
-```
-
-### 5.2 环形缓冲区
-```python
-class CircularBuffer:
-    def __init__(self, capacity):
-        self.buffer = [None] * capacity
-        self.head = 0
-        self.tail = 0
-        self.size = 0
-
-    def enqueue(self, item):
-        if self.size == len(self.buffer):
-            self._expand()
-        self.buffer[self.tail] = item
-        self.tail = (self.tail + 1) % len(self.buffer)
-        self.size += 1
-
-    def _expand(self):
-        new_cap = len(self.buffer) * 2
-        new_buffer = [None] * new_cap
-        for i in range(self.size):
-            new_buffer[i] = self.buffer[(self.head + i) % len(self.buffer)]
-        self.buffer = new_buffer
-        self.head = 0
-        self.tail = self.size
-```
-
-
-## 练习题
-
-1. 实现数组去重算法，要求时间复杂度O(n)，空间复杂度O(1)
-2. 编写函数找出数组中消失的数字（LeetCode 448）
-3. 实现两个有序数组的归并排序
-4. 设计循环双端数组，支持O(1)时间的头尾插入/删除
-
-
-### 附录：时间复杂度验证实验
-
-```python
-import timeit
-
-def test_append():
-    lst = []
-    for i in range(100000):
-        lst.append(i)
-
-def test_insert():
-    lst = []
-    for i in range(1000):  # 数量级减少
-        lst.insert(0, i)
-
-print("尾部追加耗时:", timeit.timeit(test_append, number=100))
-print("头部插入耗时:", timeit.timeit(test_insert, number=100))
-
-# 典型输出：
-# 尾部追加耗时: 0.89秒
-# 头部插入耗时: 2.31秒 （虽然只操作1/100数据量）
-``` 
+- **随机访问**：如果我们想随机抽取一些样本，那么可以用数组存储，并生成一个随机序列，根据索引实现随机抽样。
+- **排序和搜索**：数组是排序和搜索算法最常用的数据结构。快速排序、归并排序、二分查找等都主要在数组上进行。
+- **查找表**：当需要快速查找一个元素或其对应关系时，可以使用数组作为查找表。假如我们想实现字符到 ASCII 码的映射，则可以将字符的 ASCII 码值作为索引，对应的元素存放在数组中的对应位置。
+- **机器学习**：神经网络中大量使用了向量、矩阵、张量之间的线性代数运算，这些数据都是以数组的形式构建的。数组是神经网络编程中最常使用的数据结构。
+- **数据结构实现**：数组可以用于实现栈、队列、哈希表、堆、图等数据结构。例如，图的邻接矩阵表示实际上是一个二维数组。
