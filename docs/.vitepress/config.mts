@@ -8,7 +8,7 @@ function processSidebar(sidebarConfig) {
     return sidebarConfig.map(group => ({
       ...group,
       collapsible: true,
-      collapsed: true,
+      collapsed: false,
       items: group.items?.map(item => ({
         ...item,
         ...(item.items && { collapsible: true, collapsed: true })
@@ -27,7 +27,7 @@ function processSidebar(sidebarConfig) {
 
 
 const rawSidebar = {
-  '/python': [
+  '/python/basic': [
     {
       text: 'Python基础',
       items: [
@@ -47,7 +47,8 @@ const rawSidebar = {
         { text: '数据库操作', link: '/python/basic/sql' },
         { text: 'Web开发入门', link: '/python/basic/web' }
       ]
-    },
+    }],
+  '/python/data_structure': [
     {
       text: '数据结构与算法',
       items: [
@@ -108,43 +109,43 @@ const rawSidebar = {
         },
         {
           text: '堆', items: [
-            { text: '堆', link: '/python/data_structure/heap' },
-            { text: '建堆问题', link: '/python/data_structure/heap_building' },
-            { text: 'Tok-k问题', link: '/python/data_structure/top_k' },
-            { text: '小结', link: '/python/data_structure/summary8' }
+            { text: '堆', link: '/python/data_structure/heap/heap' },
+            { text: '建堆问题', link: '/python/data_structure/heap/heap_building' },
+            { text: 'Tok-k问题', link: '/python/data_structure/heap/top_k' },
+            { text: '小结', link: '/python/data_structure/heap/summary' }
           ]
         },
         {
           text: '图', items: [
-            { text: '图', link: '/python/data_structure/graph' },
-            { text: '图基础操作', link: '/python/data_structure/graph_operate' },
-            { text: '图的遍历', link: '/python/data_structure/graph_traversal' },
-            { text: '小结', link: '/python/data_structure/summary9' }
+            { text: '图', link: '/python/data_structure/graph/graph' },
+            { text: '图基础操作', link: '/python/data_structure/graph/graph_operate' },
+            { text: '图的遍历', link: '/python/data_structure/graph/graph_traversal' },
+            { text: '小结', link: '/python/data_structure/graph/summary' }
           ]
         },
         {
           text: '搜索', items: [
-            { text: '二分查找', link: '/python/data_structure/binary_search' },
-            { text: '二分查找插入点', link: '/python/data_structure/binary_search_insertion_point' },
-            { text: '二分查找边界', link: '/python/data_structure/binary_search_boundary' },
-            { text: '哈希优化策略', link: '/python/data_structure/hash_optimization_strategy' },
-            { text: '重识搜索算法', link: '/python/data_structure/rerecognition_search_algorithm' },
-            { text: '小结', link: '/python/data_structure/summary10' }
+            { text: '二分查找', link: '/python/data_structure/search/binary_search' },
+            { text: '二分查找插入点', link: '/python/data_structure/search/binary_search_insertion_point' },
+            { text: '二分查找边界', link: '/python/data_structure/search/binary_search_boundary' },
+            { text: '哈希优化策略', link: '/python/data_structure/search/hash_optimization_strategy' },
+            { text: '重识搜索算法', link: '/python/data_structure/search/rerecognition_search_algorithm' },
+            { text: '小结', link: '/python/data_structure/search/summary' }
           ]
         },
         {
           text: '排序', items: [
-            { text: '排序算法', link: '/python/data_structure/binary_search' },
-            { text: '选择排序', link: '/python/data_structure/binary_search_insertion_point' },
-            { text: '冒泡排序', link: '/python/data_structure/binary_search_boundary' },
-            { text: '插入排序', link: '/python/data_structure/hash_optimization_strategy' },
-            { text: '快速排序', link: '/python/data_structure/rerecognition_search_algorithm' },
-            { text: '归并排序', link: '/python/data_structure/rerecognition_search_algorithm' },
-            { text: '堆排序', link: '/python/data_structure/rerecognition_search_algorithm' },
-            { text: '桶排序', link: '/python/data_structure/rerecognition_search_algorithm' },
-            { text: '计数排序', link: '/python/data_structure/rerecognition_search_algorithm' },
-            { text: '基数排序', link: '/python/data_structure/rerecognition_search_algorithm' },
-            { text: '小结', link: '/python/data_structure/summary11' }
+            { text: '排序算法', link: '/python/data_structure/sorting/sorting_algorithm' },
+            { text: '选择排序', link: '/python/data_structure/sorting/selection_sort' },
+            { text: '冒泡排序', link: '/python/data_structure/sorting/bubble_sort' },
+            { text: '插入排序', link: '/python/data_structure/sorting/insertion_sort' },
+            { text: '快速排序', link: '/python/data_structure/sorting/quick_sort' },
+            { text: '归并排序', link: '/python/data_structure/sorting/merge_sort' },
+            { text: '堆排序', link: '/python/data_structure/sorting/heap_sort' },
+            { text: '桶排序', link: '/python/data_structure/sorting/bucket_sort' },
+            { text: '计数排序', link: '/python/data_structure/sorting/counting_sort' },
+            { text: '基数排序', link: '/python/data_structure/sorting/radix_sort' },
+            { text: '小结', link: '/python/data_structure/sorting/summary' }
           ]
         },
         {
@@ -187,24 +188,25 @@ const rawSidebar = {
         },
       ]
     },
-    {
-      text: '后端开发',
-      items: [
-        { text: 'flask', link: '/python_basics/installation' },
-        { text: 'django', link: '/python_basics/syntax' },
-      ]
-    },
-    {
-      text: '爬虫技术',
-      items: [
-        { text: 'requests', link: '/python_basics/installation' },
-        { text: 'bs4', link: '/python_basics/syntax' },
-        { text: 'scrapy', link: '/python_basics/oop' }
-      ]
-    }
   ],
+  '/python/backend': [{
+    text: '后端开发',
+    items: [
+      { text: 'flask', link: '/python_basics/installation' },
+      { text: 'django', link: '/python_basics/syntax' },
+    ]
+  },],
+  '/python/spider': [{
+    text: '爬虫技术',
+    items: [
+      { text: 'requests', link: '/python_basics/installation' },
+      { text: 'bs4', link: '/python_basics/syntax' },
+      { text: 'scrapy', link: '/python_basics/oop' }
+    ]
+  }],
 
-  '/ai': [
+
+  '/ai/ml': [
     {
       text: '机器学习',
       items: [
@@ -213,6 +215,10 @@ const rawSidebar = {
         { text: '分类算法', link: '/ml/classification' }
       ]
     },
+
+  ],
+
+  '/ai/dl': [
     {
       text: '深度学习',
       items: [
@@ -221,6 +227,9 @@ const rawSidebar = {
         { text: '卷积神经网络', link: '/ml/classification' }
       ]
     },
+
+  ],
+  '/ai/llm': [
     {
       text: '大模型技术',
       items: [
@@ -231,10 +240,13 @@ const rawSidebar = {
     }
   ],
 
-  '/statistics': [
+  '/statistics/probability': [
     {
       text: '概率论', link: '', items: []
     },
+
+  ],
+  '/statistics/calculus': [
     {
       text: '微积分', link: '', items: []
     },
