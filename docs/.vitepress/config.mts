@@ -91,10 +91,10 @@ const rawSidebar = {
         },
         {
           text: '哈希表', items: [
-            { text: '哈希表', link: '/python/data_structure/hashtable' },
-            { text: '哈希冲突', link: '/python/data_structure/hash_collisions' },
-            { text: '哈希算法', link: '/python/data_structure/hash_algorithm' },
-            { text: '小结', link: '/python/data_structure/summary6' }
+            { text: '哈希表', link: '/python/data_structure/hash_table/hash_table' },
+            { text: '哈希冲突', link: '/python/data_structure/hash_table/hash_collisions' },
+            { text: '哈希算法', link: '/python/data_structure/hash_table/hash_algorithm' },
+            { text: '小结', link: '/python/data_structure/hash_table/summary' }
           ]
         },
         {
