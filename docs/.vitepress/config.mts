@@ -99,11 +99,11 @@ const rawSidebar = {
         },
         {
           text: '树', items: [
-            { text: '二叉树', link: '/python/data_structure/binary_tree' },
-            { text: '二叉树遍历', link: '/python/data_structure/binary_tree_traversal' },
-            { text: '二叉树数组表示', link: '/python/data_structure/binary_tree_array' },
-            { text: 'AVL树', link: '/python/data_structure/avl_tree' },
-            { text: '小结', link: '/python/data_structure/summary7' }
+            { text: '二叉树', link: '/python/data_structure/tree/binary_tree' },
+            { text: '二叉树遍历', link: '/python/data_structure/tree/binary_tree_traversal' },
+            { text: '二叉树数组表示', link: '/python/data_structure/tree/binary_tree_array' },
+            { text: 'AVL树', link: '/python/data_structure/tree/avl_tree' },
+            { text: '小结', link: '/python/data_structure/tree/summary' }
           ]
         },
         {
