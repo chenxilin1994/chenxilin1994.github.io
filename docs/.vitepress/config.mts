@@ -150,11 +150,11 @@ const rawSidebar = {
         },
         {
           text: '分治', items: [
-            { text: '分治算法', link: '/python/data_structure/heap' },
-            { text: '分治搜索策略', link: '/python/data_structure/heap_building' },
-            { text: '构建树问题', link: '/python/data_structure/top_k' },
-            { text: '汉诺塔问题', link: '/python/data_structure/top_k' },
-            { text: '小结', link: '/python/data_structure/summary12' }
+            { text: '分治算法', link: '/python/data_structure/divide_conquer/divide_conquer_algorithm' },
+            { text: '分治搜索策略', link: '/python/data_structure/divide_conquer/divide_conquer_search_stragety' },
+            { text: '构建树问题', link: '/python/data_structure/divide_conquer/build_binary_tree_problem' },
+            { text: '汉诺塔问题', link: '/python/data_structure/divide_conquer/hanota_problem' },
+            { text: '小结', link: '/python/data_structure/divide_conquer/summary' }
           ]
         },
         {
