@@ -130,3 +130,17 @@
 .dark .vp-doc table tr:nth-child(2n) {
     background: #10151d !important;
 }
+
+.custom-container.question {
+    background-color: #f0f7ff;
+    border-left: 4px solid #3498db;
+    padding: 1rem;
+    margin: 1rem 0;
+    border-radius: 4px;
+}
+
+.custom-container.question .custom-container-title {
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
+}

@@ -1,5 +1,8 @@
 import { withMermaid } from "vitepress-plugin-mermaid"
 import mathjax3 from 'markdown-it-mathjax3'
+import markdownItContainer from 'markdown-it-container'
+import { container } from '@mdit/plugin-container'
+
 // import { defineConfig } from 'vitepress'
 
 // 通过 JavaScript 动态处理侧边栏配置：
@@ -159,31 +162,31 @@ const rawSidebar = {
         },
         {
           text: '回溯', items: [
-            { text: '回溯算法', link: '/python/data_structure/heap' },
-            { text: '全排列问题', link: '/python/data_structure/heap_building' },
-            { text: '子集和问题', link: '/python/data_structure/top_k' },
-            { text: 'N皇后问题', link: '/python/data_structure/top_k' },
-            { text: '小结', link: '/python/data_structure/summary13' }
+            { text: '回溯算法', link: '/python/data_structure/back_tracking/back_tracking_algorithm' },
+            { text: '全排列问题', link: '/python/data_structure/back_tracking/permutations_problem' },
+            { text: '子集和问题', link: '/python/data_structure/back_tracking/subset_sum_problem' },
+            { text: 'N皇后问题', link: '/python/data_structure/back_tracking/n_queens_problem' },
+            { text: '小结', link: '/python/data_structure/back_tracking/summary' }
           ]
         },
         {
           text: '动态规划', items: [
-            { text: '初探动态规划', link: '/python/data_structure/heap' },
-            { text: 'DP问题特性', link: '/python/data_structure/heap_building' },
-            { text: 'DP解题思路', link: '/python/data_structure/top_k' },
-            { text: '0-1背包问题', link: '/python/data_structure/top_k' },
-            { text: '完全背包问题', link: '/python/data_structure/top_k' },
-            { text: '编辑距离问题', link: '/python/data_structure/top_k' },
-            { text: '小结', link: '/python/data_structure/summary14' }
+            { text: '初探动态规划', link: '/python/data_structure/dynamic_programming/intro_to_dynamic_programming' },
+            { text: 'DP问题特性', link: '/python/data_structure/dynamic_programming/dp_problem_features' },
+            { text: 'DP解题思路', link: '/python/data_structure/dynamic_programming/dp_solution_pipeline' },
+            { text: '0-1背包问题', link: '/python/data_structure/dynamic_programming/knapsack_problem' },
+            { text: '完全背包问题', link: '/python/data_structure/dynamic_programming/unbounded_knapsack_problem' },
+            { text: '编辑距离问题', link: '/python/data_structure/dynamic_programming/edit_distance_problem' },
+            { text: '小结', link: '/python/data_structure/dynamic_programming/summary' }
           ]
         },
         {
           text: '贪心', items: [
-            { text: '贪心算法', link: '/python/data_structure/heap' },
-            { text: '分数背包问题', link: '/python/data_structure/heap_building' },
-            { text: '最大容量问题', link: '/python/data_structure/top_k' },
-            { text: '最大切分乘积问题', link: '/python/data_structure/top_k' },
-            { text: '小结', link: '/python/data_structure/summary15' }
+            { text: '贪心算法', link: '/python/data_structure/greedy/greedy_algorithm' },
+            { text: '分数背包问题', link: '/python/data_structure/greedy/fractional_knapsack_problem' },
+            { text: '最大容量问题', link: '/python/data_structure/greedy/max_capacity_problem' },
+            { text: '最大切分乘积问题', link: '/python/data_structure/greedy/max_product_cutting_problem' },
+            { text: '小结', link: '/python/data_structure/greedy/summary' }
           ]
         },
       ]
@@ -315,6 +318,16 @@ export default withMermaid({
     theme: 'material-theme-palenight',
     config: (md) => {
       md.use(mathjax3)
+      md.use(container, {
+        name: 'question',
+        render: (tokens, idx) => {
+          const token = tokens[idx]
+          const title = token.info.trim().slice('question'.length).trim()
+          return token.nesting === 1
+            ? `<div class="question-block">${title ? `<p>${title}</p>` : ''}`
+            : '</div>'
+        }
+      })
     }
   }
 })
