@@ -1,9 +1,6 @@
 import { withMermaid } from "vitepress-plugin-mermaid"
 import mathjax3 from 'markdown-it-mathjax3'
-import markdownItContainer from 'markdown-it-container'
 import { container } from '@mdit/plugin-container'
-
-// import { defineConfig } from 'vitepress'
 
 // 通过 JavaScript 动态处理侧边栏配置：
 function processSidebar(sidebarConfig) {
@@ -48,9 +45,18 @@ const rawSidebar = {
         { text: '全局解释器锁', link: '/python/basic/gil' },
         { text: '异步编程', link: '/python/basic/asyncio' },
         { text: '数据库操作', link: '/python/basic/sql' },
-        { text: 'Web开发入门', link: '/python/basic/web' }
+        { text: 'Web开发入门', link: '/python/basic/web' },
+        {
+          text: '高级编程', items: [
+            { text: '一切皆对象', link: '/python/basic/advanced/everything_is_object' },
+            { text: '魔法函数', link: '/python/basic/advanced/magic_function' },
+            { text: '深入类和对象', link: '/python/basic/advanced/more_about_class_object' }
+          ]
+        },
       ]
     }],
+  '/python/interview': [],
+
   '/python/data_structure': [
     {
       text: '数据结构与算法',
@@ -195,16 +201,16 @@ const rawSidebar = {
   '/python/backend': [{
     text: '后端开发',
     items: [
-      { text: 'flask', link: '/python_basics/installation' },
-      { text: 'django', link: '/python_basics/syntax' },
+      { text: 'flask', link: '/python/baskend/flask' },
+      { text: 'django', link: '/python/backend/django' },
     ]
-  },],
+  }],
   '/python/spider': [{
     text: '爬虫技术',
     items: [
-      { text: 'requests', link: '/python_basics/installation' },
-      { text: 'bs4', link: '/python_basics/syntax' },
-      { text: 'scrapy', link: '/python_basics/oop' }
+      { text: 'requests', link: '/python/spider/requests' },
+      { text: 'bs4', link: '/python/spider/bs4' },
+      { text: 'scrapy', link: '/python/spider/scrapy' }
     ]
   }],
 
@@ -213,12 +219,69 @@ const rawSidebar = {
     {
       text: '机器学习',
       items: [
-        { text: '数学基础', link: '/ml/math' },
-        { text: '线性回归', link: '/ml/linear_regression' },
-        { text: '分类算法', link: '/ml/classification' }
+        {
+          text: '线性模型', items: [
+            { text: '线性回归', link: '' },
+            { text: '逻辑回归', link: '' },
+            { text: '感知机', link: '' },
+          ]
+        },
+        { text: 'K近邻', link: '' },
+        {
+          text: '支持向量机', items: [
+            { text: '核函数', link: '' },
+            { text: '软间隔与硬间隔分类', link: '' },
+            { text: 'SVM回归', link: '' },
+          ]
+        },
+        {
+          text: '树模型', items: [
+            { text: '决策树-ID3', link: '' },
+            { text: '决策树-C4.5', link: '' },
+            { text: '决策树-CART', link: '' },
+            { text: '装袋', link: '' },
+            { text: '提升', link: '' },
+            { text: 'Adaboost', link: '' },
+            { text: '随机森林', link: '' },
+            { text: 'GBDT', link: '' },
+            { text: 'XGBoost', link: '' },
+            { text: 'LightGBM', link: '' },
+            { text: 'Catboost', link: '' },
+            { text: '感知机', link: '' },
+          ]
+        },
+        {
+          text: '贝叶斯', items: [
+            { text: '朴素贝叶斯', link: '' },
+            { text: '贝叶斯网络', link: '' },
+            { text: '贝叶斯线性回归', link: '' },
+            { text: '贝叶斯逻辑回归', link: '' }
+          ]
+        },
+        {
+          text: '聚类', items: [
+            { text: 'K均值聚类', link: '' },
+            { text: '层次聚类', link: '' },
+            { text: 'DBSCAN', link: '' },
+            { text: '高斯混合模型', link: '' },
+            { text: 'EM算法', link: '' }
+          ]
+        },
+        {
+          text: '降维', items: [
+            { text: '主成分分析', link: '' },
+            { text: 't-SNE与UMAP', link: '' },
+            { text: 'LDA降维', link: '' }
+          ]
+        },
+        {
+          text: '关联规则', items: [
+            { text: 'Apriori算法', link: '' },
+            { text: 'FP-Growth', link: '' }
+          ]
+        }
       ]
-    },
-
+    }
   ],
 
   '/ai/dl': [
@@ -261,7 +324,6 @@ export default withMermaid({
   title: "智学笔记",
   description: "编程与人工智能学习笔记",
   themeConfig: {
-    // https://vitepress.dev/reference/default-theme-config
     outline: [2, 3, 4],
     nav: [
       { text: '首页', link: '/' },
@@ -272,6 +334,7 @@ export default withMermaid({
           { text: '算法与数据结构', link: '/python/data_structure/' },
           { text: '后端', link: '/python/backend/' },
           { text: '爬虫', link: '/python/spider/' },
+          { text: 'Python面试题', link: '/python/interview/' },
         ]
       },
       {
@@ -297,7 +360,7 @@ export default withMermaid({
     ],
 
     editLink: {
-      pattern: 'https://github.com/yourusername/yourrepo/edit/main/:path',
+      pattern: 'https://github.com/chenxilin1994/chenxilin1994.github.io/edit/master/docs/:path',
       text: '在GitHub上编辑此页'
     },
 
