@@ -55,7 +55,18 @@ const rawSidebar = {
         },
       ]
     }],
-  '/python/interview': [],
+  '/python/interview': [
+    { text: '基础语法', link: '/python/interview/basic_syntax' },
+    { text: '数据结构', link: '/python/interview/data_structure' },
+    { text: '函数与模块', link: '/python/interview/function_module' },
+    { text: '面向对象编程', link: '/python/interview/oop' },
+    { text: '并发与异步编程', link: '/python/interview/concurrency_asyncio' },
+    { text: '模块与包管理', link: '/python/interview/module_package' },
+    { text: '错误处理与调试', link: '/python/interview/exception_debug' },
+    { text: '数据库与ORM', link: '/python/interview/database_orm' },
+    { text: '测试', link: '/python/interview/test' },
+    { text: '高级编程', link: '/python/interview/advanced' },
+  ],
 
   '/python/data_structure': [
     {
@@ -219,6 +230,13 @@ const rawSidebar = {
     {
       text: '机器学习',
       items: [
+        {
+          text: '特征工程', items: [
+            { text: '缺失值处理', link: '' },
+            { text: '异常值处理', link: '' },
+            { text: 'TF-IDF', link: '/ai/ml/feature_engineer/tf-idf' },
+          ]
+        },
         {
           text: '线性模型', items: [
             { text: '线性回归', link: '' },
