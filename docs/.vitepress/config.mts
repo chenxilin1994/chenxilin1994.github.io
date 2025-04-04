@@ -231,20 +231,37 @@ const rawSidebar = {
       text: '机器学习',
       items: [
         {
-          text: '特征工程', items: [
-            { text: '缺失值处理', link: '' },
-            { text: '异常值处理', link: '' },
-            { text: 'TF-IDF', link: '/ai/ml/feature_engineer/tf-idf' },
-          ]
-        },
-        {
           text: '线性模型', items: [
-            { text: '线性回归', link: '' },
+            { text: '线性回归', link: '/ai/ml/linear_model/linear_regression' },
+            { text: '多项式回归', link: '/ai/ml/linear_model/polynomial_regression' },
+            { text: '贝叶斯线性回归', link: '/ai/ml/linear_model/bayesian_linear_regression' },
+            { text: '稳健回归', link: '/ai/ml/linear_model/robust_regression' },
+            { text: '分位数回归', link: '/ai/ml/linear_model/quantile_regression' },
+            { text: '岭回归', link: '/ai/ml/linear_model/ridge_regression' },
+            { text: 'LASSO回归', link: '/ai/ml/linear_model/lasso_regression' },
+            { text: '弹性网回归', link: '/ai/ml/linear_model/elastic_net_regression' },
+            { text: '最小角回归', link: '/ai/ml/linear_model/least_angle_regression' },
+            { text: '逻辑回归', link: '/ai/ml/linear_model/logistic_regression' },
+            { text: '广义线性模型', link: '/ai/ml/linear_model/generalized_linear_model' },
+            { text: '正交匹配追踪', link: '/ai/ml/linear_model/oop' },
             { text: '逻辑回归', link: '' },
             { text: '感知机', link: '' },
           ]
         },
-        { text: 'K近邻', link: '' },
+        {
+          text: '数据预处理', items: [
+            { text: '缺失值处理', link: '/ai/ml/data_preprocess/missing_value_processing' },
+            { text: '异常值处理', link: '/ai/ml/data_preprocess/outlier_processing' },
+            { text: '特征编码', link: '/ai/ml/data_preprocess/feature_encoding' },
+            { text: '特征缩放与变换', link: '/ai/ml/data_preprocess/feature_scaling_tranformation' },
+            { text: '特征选择', link: '/ai/ml/data_preprocess/feature_selecting' },
+            { text: '数据重采样', link: '/ai/ml/data_preprocess/data_resample' },
+            { text: '文本数据预处理', link: '/ai/ml/data_preprocess/text_preprocessing' },
+            { text: '图像数据预处理', link: '/ai/ml/data_preprocess/image_preprocessing' },
+            { text: 'TF-IDF', link: '/ai/ml/data_preprocess/tf-idf' },
+          ]
+        },
+        { text: 'K近邻', link: '/ai/ml/knn' },
         {
           text: '支持向量机', items: [
             { text: '核函数', link: '' },
@@ -253,10 +270,15 @@ const rawSidebar = {
           ]
         },
         {
-          text: '树模型', items: [
-            { text: '决策树-ID3', link: '' },
-            { text: '决策树-C4.5', link: '' },
-            { text: '决策树-CART', link: '' },
+          text: '决策树', items: [
+            { text: 'ID3', link: '' },
+            { text: 'C4.5', link: '' },
+            { text: 'CART', link: '' },
+            { text: '剪枝', link: '' }
+          ]
+        },
+        {
+          text: '集成模型', items: [
             { text: '装袋', link: '' },
             { text: '提升', link: '' },
             { text: 'Adaboost', link: '' },
@@ -264,16 +286,23 @@ const rawSidebar = {
             { text: 'GBDT', link: '' },
             { text: 'XGBoost', link: '' },
             { text: 'LightGBM', link: '' },
-            { text: 'Catboost', link: '' },
-            { text: '感知机', link: '' },
+            { text: 'Catboost', link: '' }
           ]
         },
         {
           text: '贝叶斯', items: [
             { text: '朴素贝叶斯', link: '' },
             { text: '贝叶斯网络', link: '' },
-            { text: '贝叶斯线性回归', link: '' },
-            { text: '贝叶斯逻辑回归', link: '' }
+            { text: '贝叶斯线性回归', link: '/ai/ml/linear_model/bayesian_linear_regression' },
+            { text: '贝叶斯逻辑回归', link: '/ai/ml/linear_model/bayesian_logistic_regression' },
+          ]
+        },
+        {
+          text: '判别分析', items: [
+            { text: '线性判别分析', link: '/ai/ml/discriminant_analysis/lda' },
+            { text: '二次判别分析', link: '/ai/ml/discriminant_analysis/qda' },
+            { text: '正则化判别分析', link: '/ai/ml/linear_model/rda' },
+            { text: '对角判别分析', link: '/ai/ml/linear_model/qda' },
           ]
         },
         {
@@ -296,6 +325,39 @@ const rawSidebar = {
           text: '关联规则', items: [
             { text: 'Apriori算法', link: '' },
             { text: 'FP-Growth', link: '' }
+          ]
+        },
+        {
+          text: '评价指标', items: [
+            { text: '二分类评价指标', link: '' },
+            { text: '多分类评价指标', link: '' },
+            { text: '回归评价指标', link: '' },
+            { text: '聚类评价指标', link: '' },
+            { text: '排序与推荐任务指标', link: '' },
+            { text: '多标签与概率评估', link: '' },
+            { text: '计算机视觉相关指标', link: '' },
+            { text: '自然语言处理相关指标', link: '' },
+          ]
+        },
+        {
+          text: '数据划分与验证策略', items: [
+            { text: '简单划分', link: '' },
+            { text: '交叉验证', link: '' },
+            { text: '自助法', link: '' },
+            { text: '分层抽样', link: '' },
+            { text: '重复交叉验证', link: '' },
+            { text: 'GroupKFold', link: '' }
+          ]
+        },
+        {
+          text: '模型选择与比较', items: [
+            { text: '模型选择流程', link: '' },
+            { text: '超参数调优--网格搜索', link: '' },
+            { text: '超参数调优--贝叶斯优化', link: '' },
+            { text: '超参数调优--进化算法', link: '' },
+            { text: '模型比较方法--统计显著性检验', link: '' },
+            { text: '模型比较方法--实际效果差异', link: '' },
+            { text: '模型泛化能力分析', link: '' }
           ]
         }
       ]
