@@ -228,7 +228,7 @@ const rawSidebar = {
 
   '/ai/ml': [
     {
-      text: '机器学习',
+      text: '机器学习', link: '/ai/ml/',
       items: [
         {
           text: '线性模型', items: [
@@ -243,9 +243,7 @@ const rawSidebar = {
             { text: '最小角回归', link: '/ai/ml/linear_model/least_angle_regression' },
             { text: '逻辑回归', link: '/ai/ml/linear_model/logistic_regression' },
             { text: '广义线性模型', link: '/ai/ml/linear_model/generalized_linear_model' },
-            { text: '正交匹配追踪', link: '/ai/ml/linear_model/oop' },
-            { text: '逻辑回归', link: '' },
-            { text: '感知机', link: '' },
+            { text: '正交匹配追踪', link: '/ai/ml/linear_model/omp' }
           ]
         },
         {
@@ -368,19 +366,76 @@ const rawSidebar = {
     {
       text: '深度学习',
       items: [
-        { text: '基础', link: '/ml/math' },
-        { text: '反向传播算法', link: '/ml/linear_regression' },
-        { text: '卷积神经网络', link: '/ml/classification' }
+        {
+          text: '基础', items: [
+            { text: '感知器', link: '/ai/dl/basic/perception' },
+            { text: '多层感知器', link: '/ai/dl/basic/mlp' },
+            { text: '反向传播算法', link: '/ai/dl/basic/back_propagation' },
+            { text: '激活函数', link: '/ai/dl/basic/activation_function' },
+            { text: '损失函数', link: '/ai/dl/basic/loss_function' }
+          ]
+        },
+        {
+          text: '卷积神经网络', items: [
+            { text: '卷积神经网络', link: '/ai/dl/cnn/cnn' },
+            { text: '卷积神经网络经典模型', link: '/ai/dl/cnn/classic_model' },
+          ]
+        },
+        {
+          text: '循环神经网络', items: [
+            { text: '循环神经网络', link: '/ai/dl/cnn/cnn' },
+            { text: '循环神经网络经典模型', link: '/ai/dl/cnn/classic_model' },
+          ]
+        },
+        {
+          text: '注意力机制', items: [
+            { text: '注意力机制', link: '/ai/dl/cnn/cnn' },
+            { text: 'xxxx', link: '/ai/dl/cnn/classic_model' },
+          ]
+        },
+        {
+          text: '生成对抗网络', items: [
+            { text: '生成对抗网络', link: '/ai/dl/cnn/cnn' },
+            { text: 'xxxx', link: '/ai/dl/cnn/classic_model' },
+          ]
+        },
+        {
+          text: '优化方法', items: [
+            { text: 'SGD', link: '/ai/dl/optimizer/sgd' },
+            { text: 'Momentum', link: '/ai/dl/optimizer/momentum' },
+            { text: 'Nesterov', link: '/ai/dl/optimizer/nesterov' },
+            { text: 'Adagrad', link: '/ai/dl/optimizer/adagrad' },
+            { text: 'RMSprop', link: '/ai/dl/optimizer/rmsprop' },
+            { text: 'Adam', link: '/ai/dl/optimizer/adam' },
+            { text: 'AdaDelta', link: '/ai/dl/optimizer/adadelta' },
+            { text: 'AdamW', link: '/ai/dl/optimizer/adamw' },
+            { text: 'Nadam', link: '/ai/dl/optimizer/nadam' },
+            { text: 'FTRL', link: '/ai/dl/optimizer/ftrl' },
+            { text: 'LARS', link: '/ai/dl/optimizer/lars' },
+            { text: 'LAMB', link: '/ai/dl/optimizer/lamb' }
+          ]
+        },
+        {
+          text: '正则化方法', items: [
+            { text: 'L1正则化', link: '/ai/dl/regularization/l1_regularization' },
+            { text: 'L2正则化', link: '/ai/dl/regularization/l2_regularization' },
+            { text: 'L1_L2正则化', link: '/ai/dl/regularization/l1_l2_regularization' },
+            { text: 'Dropout', link: '/ai/dl/regularization/dropout' },
+            { text: '数据增强', link: '/ai/dl/regularization/data_augmentation' },
+            { text: '早停法', link: '/ai/dl/regularization/early_stopping' },
+            { text: '模型集成', link: '/ai/dl/regularization/model_ensemble' }
+          ]
+        }
       ]
     },
 
   ],
   '/ai/llm': [
     {
-      text: '大模型技术',
+      text: '大模型核心架构',
       items: [
-        { text: 'Transformer', link: '/llm/transformer' },
-        { text: '预训练实践', link: '/llm/pretrain' },
+        { text: 'Transformer架构详解', link: '/llm/transformer' },
+        { text: '主流大模型结构对比', link: '/llm/pretrain' },
         { text: '微调技巧', link: '/llm/finetune' }
       ]
     }
@@ -388,7 +443,9 @@ const rawSidebar = {
 
   '/statistics/probability': [
     {
-      text: '概率论', link: '', items: []
+      text: '概率论', link: '', items: [
+
+      ]
     },
 
   ],
