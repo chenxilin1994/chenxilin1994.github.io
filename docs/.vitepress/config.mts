@@ -255,8 +255,7 @@ const rawSidebar = {
             { text: '特征选择', link: '/ai/ml/data_preprocess/feature_selecting' },
             { text: '数据重采样', link: '/ai/ml/data_preprocess/data_resample' },
             { text: '文本数据预处理', link: '/ai/ml/data_preprocess/text_preprocessing' },
-            { text: '图像数据预处理', link: '/ai/ml/data_preprocess/image_preprocessing' },
-            { text: 'TF-IDF', link: '/ai/ml/data_preprocess/tf-idf' },
+            { text: '图像数据预处理', link: '/ai/ml/data_preprocess/image_preprocessing' }
           ]
         },
         { text: 'K近邻', link: '/ai/ml/knn' },
