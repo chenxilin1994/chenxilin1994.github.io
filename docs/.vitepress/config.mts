@@ -2,7 +2,7 @@ import { withMermaid } from "vitepress-plugin-mermaid"
 import mathjax3 from 'markdown-it-mathjax3'
 import { container } from '@mdit/plugin-container'
 
-// 通过 JavaScript 动态处理侧边栏配置：
+// 通过 JavaScript 动态处理侧边栏配置
 function processSidebar(sidebarConfig) {
   if (Array.isArray(sidebarConfig)) {
     return sidebarConfig.map(group => ({
@@ -56,18 +56,19 @@ const rawSidebar = {
       ]
     }],
   '/python/interview': [
-    { text: '基础语法', link: '/python/interview/basic_syntax' },
-    { text: '数据结构', link: '/python/interview/data_structure' },
-    { text: '函数与模块', link: '/python/interview/function_module' },
-    { text: '面向对象编程', link: '/python/interview/oop' },
-    { text: '并发与异步编程', link: '/python/interview/concurrency_asyncio' },
-    { text: '模块与包管理', link: '/python/interview/module_package' },
-    { text: '错误处理与调试', link: '/python/interview/exception_debug' },
-    { text: '数据库与ORM', link: '/python/interview/database_orm' },
-    { text: '测试', link: '/python/interview/test' },
-    { text: '高级编程', link: '/python/interview/advanced' },
+    {
+      text: '面试题集锦', items: [{ text: '基础语法', link: '/python/interview/basic_syntax' },
+      { text: '数据结构', link: '/python/interview/data_structure' },
+      { text: '函数与模块', link: '/python/interview/function_module' },
+      { text: '面向对象编程', link: '/python/interview/oop' },
+      { text: '并发与异步编程', link: '/python/interview/concurrency_asyncio' },
+      { text: '模块与包管理', link: '/python/interview/module_package' },
+      { text: '错误处理与调试', link: '/python/interview/exception_debug' },
+      { text: '数据库与ORM', link: '/python/interview/database_orm' },
+      { text: '测试', link: '/python/interview/test' },
+      { text: '高级编程', link: '/python/interview/advanced' },]
+    }
   ],
-
   '/python/data_structure': [
     {
       text: '数据结构与算法',
@@ -224,8 +225,6 @@ const rawSidebar = {
       { text: 'scrapy', link: '/python/spider/scrapy' }
     ]
   }],
-
-
   '/ai/ml': [
     {
       text: '机器学习', link: '/ai/ml/',
@@ -261,29 +260,35 @@ const rawSidebar = {
         { text: 'K近邻', link: '/ai/ml/knn' },
         {
           text: '支持向量机', items: [
-            { text: '核函数', link: '' },
-            { text: '软间隔与硬间隔分类', link: '' },
-            { text: 'SVM回归', link: '' },
+            { text: '支持向量机', link: '/ai/ml/svm/theory' },
+            { text: '补充扩展', link: '/ai/ml/svm/replenish' }
           ]
         },
         {
           text: '决策树', items: [
-            { text: 'ID3', link: '' },
-            { text: 'C4.5', link: '' },
-            { text: 'CART', link: '' },
-            { text: '剪枝', link: '' }
+            { text: '原理', link: '/ai/ml/decision_tree/theory' },
+            { text: '实践', link: '/ai/ml/decision_tree/practice' }
           ]
         },
         {
           text: '集成模型', items: [
-            { text: '装袋', link: '' },
-            { text: '提升', link: '' },
-            { text: 'Adaboost', link: '' },
-            { text: '随机森林', link: '' },
-            { text: 'GBDT', link: '' },
-            { text: 'XGBoost', link: '' },
-            { text: 'LightGBM', link: '' },
-            { text: 'Catboost', link: '' }
+            {
+              text: '装袋', link: '/ai/ml/ensemble/bagging', items:
+                [
+                  { text: '随机森林', link: '/ai/ml/ensemble/random_forest' },
+                  { text: 'ExtraTrees', link: '/ai/ml/ensemble/extra_tree' }
+                ]
+            },
+            {
+              text: '提升', link: '/ai/ml/ensemble/boosting', items: [
+                { text: 'AdaBoost', link: '/ai/ml/ensemble/adaboost' },
+                { text: 'GBDT', link: '/ai/ml/ensemble/gbdt' },
+                { text: 'XGBoost', link: '/ai/ml/ensemble/xgboost' },
+                { text: 'LightGBM', link: '/ai/ml/ensemble/lightgbm' },
+                { text: 'CatBoost', link: '/ai/ml/ensemble/catboost' }
+              ]
+            },
+            { text: 'Stacking', link: '' },
           ]
         },
         {
@@ -326,11 +331,11 @@ const rawSidebar = {
         },
         {
           text: '评价指标', items: [
-            { text: '二分类评价指标', link: '' },
-            { text: '多分类评价指标', link: '' },
-            { text: '回归评价指标', link: '' },
-            { text: '聚类评价指标', link: '' },
-            { text: '排序与推荐任务指标', link: '' },
+            { text: '二分类评价指标', link: '/ai/ml/metrics/binary_classification' },
+            { text: '多分类评价指标', link: '/ai/ml/metrics/multi_' },
+            { text: '回归评价指标', link: '/ai/ml/metrics/regression' },
+            { text: '聚类评价指标', link: '/ai/ml/metrics/clusterer' },
+            { text: '排序与推荐任务指标', link: '/ai/ml/metrics/sort_recommend' },
             { text: '多标签与概率评估', link: '' },
             { text: '计算机视觉相关指标', link: '' },
             { text: '自然语言处理相关指标', link: '' },
@@ -460,7 +465,7 @@ export default withMermaid({
   title: "智学笔记",
   description: "编程与人工智能学习笔记",
   themeConfig: {
-    outline: [2, 3, 4],
+    outline: [2, 3, 4, 5],
     nav: [
       { text: '首页', link: '/' },
       {
