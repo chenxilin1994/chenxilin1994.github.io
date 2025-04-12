@@ -288,32 +288,32 @@ const rawSidebar = {
                 { text: 'CatBoost', link: '/ai/ml/ensemble/catboost' }
               ]
             },
-            { text: 'Stacking', link: '' },
+            { text: 'Stacking', link: '/ai/ml/ensemble/stacking' },
           ]
         },
         {
           text: '贝叶斯', items: [
-            { text: '朴素贝叶斯', link: '' },
-            { text: '贝叶斯网络', link: '' },
+            { text: '朴素贝叶斯', link: '/ai/ml/bayes/naive_bayes' },
+            { text: '贝叶斯网络', link: '/ai/ml/bayes/bayes_network' },
             { text: '贝叶斯线性回归', link: '/ai/ml/linear_model/bayesian_linear_regression' },
-            { text: '贝叶斯逻辑回归', link: '/ai/ml/linear_model/bayesian_logistic_regression' },
+            { text: '贝叶斯逻辑回归', link: '/ai/ml/bayes/bayesian_logistic_regression' },
           ]
         },
         {
           text: '判别分析', items: [
             { text: '线性判别分析', link: '/ai/ml/discriminant_analysis/lda' },
             { text: '二次判别分析', link: '/ai/ml/discriminant_analysis/qda' },
-            { text: '正则化判别分析', link: '/ai/ml/linear_model/rda' },
-            { text: '对角判别分析', link: '/ai/ml/linear_model/qda' },
+            { text: '正则化判别分析', link: '/ai/ml/discriminant_analysis/rda' },
+            { text: '对角判别分析', link: '/ai/ml/discriminant_analysis/dda' },
           ]
         },
         {
           text: '聚类', items: [
-            { text: 'K均值聚类', link: '' },
-            { text: '层次聚类', link: '' },
-            { text: 'DBSCAN', link: '' },
-            { text: '高斯混合模型', link: '' },
-            { text: 'EM算法', link: '' }
+            { text: 'K均值聚类', link: '/ai/ml/clusterer/kmeans' },
+            { text: '层次聚类', link: '/ai/ml/clusterer/hierarchical_clustering' },
+            { text: 'DBSCAN', link: '/ai/ml/clusterer/DBSCAN' },
+            { text: '高斯混合模型', link: '/ai/ml/clusterer/GMM' },
+            { text: 'EM算法', link: '/ai/ml/clusterer/EM' },
           ]
         },
         {
