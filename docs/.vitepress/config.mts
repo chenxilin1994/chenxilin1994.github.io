@@ -318,7 +318,7 @@ const rawSidebar = {
         },
         {
           text: '降维', items: [
-            { text: '主成分分析', link: '' },
+            { text: '主成分分析', link: '/ai/ml/dimentionality_reduction/pca' },
             { text: 't-SNE与UMAP', link: '' },
             { text: 'LDA降维', link: '' }
           ]
