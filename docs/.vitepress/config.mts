@@ -332,34 +332,30 @@ const rawSidebar = {
         {
           text: '评价指标', items: [
             { text: '二分类评价指标', link: '/ai/ml/metrics/binary_classification' },
-            { text: '多分类评价指标', link: '/ai/ml/metrics/multi_' },
+            { text: '多分类评价指标', link: '/ai/ml/metrics/multi_classification' },
             { text: '回归评价指标', link: '/ai/ml/metrics/regression' },
             { text: '聚类评价指标', link: '/ai/ml/metrics/clusterer' },
             { text: '排序与推荐任务指标', link: '/ai/ml/metrics/sort_recommend' },
-            { text: '多标签与概率评估', link: '' },
-            { text: '计算机视觉相关指标', link: '' },
-            { text: '自然语言处理相关指标', link: '' },
-          ]
-        },
-        {
-          text: '数据划分与验证策略', items: [
-            { text: '简单划分', link: '' },
-            { text: '交叉验证', link: '' },
-            { text: '自助法', link: '' },
-            { text: '分层抽样', link: '' },
-            { text: '重复交叉验证', link: '' },
-            { text: 'GroupKFold', link: '' }
+            { text: '多标签与概率评估', link: '/ai/ml/metrics/multi_label' },
+            { text: '计算机视觉相关指标', link: '/ai/ml/metrics/cv' },
+            { text: '自然语言处理相关指标', link: '/ai/ml/metrics/nlp' },
           ]
         },
         {
           text: '模型选择与比较', items: [
-            { text: '模型选择流程', link: '' },
-            { text: '超参数调优--网格搜索', link: '' },
-            { text: '超参数调优--贝叶斯优化', link: '' },
-            { text: '超参数调优--进化算法', link: '' },
-            { text: '模型比较方法--统计显著性检验', link: '' },
-            { text: '模型比较方法--实际效果差异', link: '' },
-            { text: '模型泛化能力分析', link: '' }
+            { text: '数据划分与验证策略', link: '/ai/ml/model_selection/data_partition_validation' },
+            { text: '模型选择流程', link: '/ai/ml/model_selection/model_selection_process' },
+            {
+              text: '超参数调优', link: '', items: [
+                { text: '网格搜索', link: '/ai/ml/model_selection/grid_search' },
+                { text: '随机搜索', link: '/ai/ml/model_selection/random_search' },
+                { text: '贝叶斯优化', link: '/ai/ml/model_selection/bayesian_optimization' },
+                { text: '进化算法', link: '/ai/ml/model_selection/evolutionary_algorithms' },
+              ]
+            },
+
+            { text: '模型比较方法--统计显著性检验', link: '/ai/ml/model_selection/significance_test' },
+            { text: '模型泛化能力分析', link: '/ai/ml/model_selection/generalization' },
           ]
         }
       ]
